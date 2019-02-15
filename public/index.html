@@ -6,12 +6,53 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title>pokedex</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <noscript>
       <strong>We're sorry but pokedex doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
+    <div id="preloader">
+        <div id="pre_status"><span>Loading</span></div>
+    </div>
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script>
+    //<![CDATA[
+        $(window).on('load', function() { // makes sure the whole site is loaded 
+            $('#pre_status').fadeOut(); // will first fade out the loading animation 
+            $('#preloader').delay(100).fadeOut('slow'); // will fade out the white DIV that covers the website. 
+            // $('body').delay(100).css({'overflow':'visible'});
+        })
+    //]]>
+    $(document).ready(function(){
+
+        $(".menu-icon").on("click", function(){
+            setTimeout(function(){ 
+              console.log("Dont click me");
+              $(".menu-slider").removeClass("animate_slide_left").addClass("animate_slide_right");
+              $(".menu-icon").hide();
+            },100);
+        });
+        $(".close-menu").on("click", function(){
+          $(".menu-slider").removeClass("animate_slide_right").addClass("animate_slide_left");
+            setTimeout(function(){ 
+              $(".menu-icon").show();
+            }, 100);
+        });
+        $("ul.nav li a").on("click", function(){
+          $(".menu-slider").removeClass("animate_slide_right").addClass("animate_slide_left");
+            setTimeout(function(){ 
+              $(".menu-icon").show();
+            }, 100);
+        });
+    });
+  </script>
+
 </html>

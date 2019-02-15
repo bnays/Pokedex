@@ -10,14 +10,14 @@ export default new Router({
   routes: [
     {
       path: "/",
-      name: "home",
-      component: Home
-    },
-    {
-      path: '/pokedex',
-      name: 'PokemonComponent',
+      name: "PokemonComponent",
       component: PokemonComponent
     },
+    // {
+    //   path: '/pokedex',
+    //   name: 'PokemonComponent',
+    //   component: PokemonComponent
+    // },
     {
       path: '/student',
       name: 'StudentsComponent',
